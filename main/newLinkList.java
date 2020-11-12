@@ -35,13 +35,32 @@ public class newLinkList<E> {
 		}
 		return valueNode;
 	}
-	public void addingSelectedPosition(MyNode<E> mySelectedNode, MyNode<E> valueNode) {
-        MyNode<E> tempNode = (MyNode<E>) this.head;
-        while (!tempNode.getNext().equals(mySelectedNode.getNext())) {
-            tempNode = (MyNode<E>) tempNode.getNext();
-        }
-        valueNode.setNext(tempNode.getNext());
-        tempNode.setNext(valueNode);
-    }
+	public INodei pop() {
+		
+		INodei tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
+	public void insert(INodei myNode, INodei newNode) {
+		INodei tempNode = myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+	public MyNode RemoveFromStart() {
+	        MyNode tempNode = (MyNode) this.head;
+	        this.head = head.getNext();
+	        return tempNode;
+	    }
+	public void printNodeAfterAppending() {
+		StringBuffer newNodes = new StringBuffer("Nodes ");
+		INodei tempNode = head;
+		while(tempNode.getNext() != null) {
+			newNodes.append(tempNode.getKey());
+			if(!tempNode.equals(tail)) newNodes.append("->");
+			tempNode = tempNode.getNext();
+		}
+		newNodes.append(tempNode.getKey());
+		System.out.println(newNodes);
+	}
 		
 }

@@ -38,5 +38,40 @@ public class testNode {
 	                newLinkList.last.equals(secondNode);
 	        Assert.assertTrue(newLinkListCreated);
 	    }
+	 @Test
+		public void shouldPassThisTestWhenAppendingThreeValuesToLinkedList() {
+			MyNode<Integer> firstNode = new MyNode<>(56);
+			MyNode<Integer> secondNode = new MyNode<>(30);
+			MyNode<Integer> thirdNode = new MyNode<>(70);
+			
+			newLinkList newLinkedList = new newLinkList();
+			
+			newLinkedList.add(firstNode);
+			newLinkedList.append(secondNode);
+			newLinkedList.append(thirdNode);
+			
+			newLinkedList.printNodeAfterAppending();
+			boolean result = newLinkedList.head.equals(firstNode) &&
+							 newLinkedList.head.getNext().equals(secondNode) &&
+							 newLinkedList.tail.equals(thirdNode);
+			Assert.assertTrue(result);
+		}
+	 @Test
+		public void shouldPassThisTestWhenFirstValueDeletedFromLinkedList() {
+			MyNode<Integer> firstNode = new MyNode<>(56);
+			MyNode<Integer> secondNode = new MyNode<>(30);
+			MyNode<Integer> thirdNode = new MyNode<>(70);
+			
+			newLinkedList newLinkedList = new newLinkedList();
+			
+			newLinkedList.add(firstNode);
+			newLinkedList.append(thirdNode);
+			newLinkedList.insert(firstNode, secondNode);
+			
+			INodei result = newLinkedList.pop();
+			newLinkedList.printMyNode();
+			Assert.assertEquals(firstNode, result);
+		}
+	 
 
 }
