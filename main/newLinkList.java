@@ -35,13 +35,16 @@ public class newLinkList<E> {
 		}
 		return valueNode;
 	}
-	public void addingSelectedPosition(MyNode<E> mySelectedNode, MyNode<E> valueNode) {
-        MyNode<E> tempNode = (MyNode<E>) this.head;
-        while (!tempNode.getNext().equals(mySelectedNode.getNext())) {
-            tempNode = (MyNode<E>) tempNode.getNext();
-        }
-        valueNode.setNext(tempNode.getNext());
-        tempNode.setNext(valueNode);
-    }
+	public void printNodeAfterAppending() {
+		StringBuffer newNodes = new StringBuffer("Nodes ");
+		INodei tempNode = head;
+		while(tempNode.getNext() != null) {
+			newNodes.append(tempNode.getKey());
+			if(!tempNode.equals(tail)) newNodes.append("->");
+			tempNode = tempNode.getNext();
+		}
+		newNodes.append(tempNode.getKey());
+		System.out.println(newNodes);
+	}
 		
 }
